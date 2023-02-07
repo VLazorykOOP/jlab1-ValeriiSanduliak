@@ -1,7 +1,11 @@
+import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-        System.out.println("Lab 1 Java");
+     System.out.print("s= ");
+      Scanner in = new Scanner(System.in);
+      float s = in.nextFloat();
+      System.out.println("s=" +s);
+       in.close();
     }
 }
