@@ -28,7 +28,6 @@ public class Task1 {
     double x2 = in.nextDouble();
     System.out.print("Input y= ");
     double y2 = in.nextDouble();
-    
     int res2 = (int)Math.round((1/(x2*y2))+(1/(Math.pow(x2,2)+Math.pow(y2,2)))*(x2-y2));
     System.out.println("res2 " + res2); 
      in.close();
