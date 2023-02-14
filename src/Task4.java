@@ -20,12 +20,6 @@ public class Task4 {
         for(int i=0;i<words.length;++i){
           System.out.print(words[i]+" ");
         }
-
-        
-
-
-
-
          in.close(); 
         } 
 
