@@ -34,7 +34,7 @@ public class Task3 {
         }    
     public static void main(String[] args) {
         in = new Scanner(System.in);
-        System.out.println("Input size array : ");
+        System.out.println("Input size : ");
         System.out.print("n = ");
        int  n=in.nextInt();
         while(n > 15 || n<=0){
