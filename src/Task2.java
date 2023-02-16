@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.util.Arrays;
+import java.util.ArrayList;
 public class Task2 {
     static Scanner in;
     static int [] Input()
@@ -27,32 +27,41 @@ public class Task2 {
     }
     System.out.println();
     }
-    static void searchChain(int[] arr){
-        Arrays.sort(arr); 
-        System.out.println("Array after sort: ");
-        Print(arr);
-        int currentpos=1;
-        int longchain =1;
-        for(int i=1;i<arr.length;++i){
-            if (arr[i] != arr[i-1]) {
-                if (arr[i] == arr[i-1]+1) {
-                   currentpos+=1;
+    static void LongestChain(int[] arr){
+        int previous = arr[0];
+        ArrayList<Integer> longestArr = new ArrayList<Integer>();
+        ArrayList<Integer> currentArr = new ArrayList<Integer>();
+        currentArr.add(previous);
+        for(int i=1;i<arr.length;i++){
+            if(arr[i]>previous){
+                currentArr.add(arr[i]);
+            }
+            else {
+                previous = arr[i];
+                if(currentArr.size()>longestArr.size()){
+                    longestArr =currentArr;
                 }
-                else{
-                    longchain = Math.max(longchain, currentpos);
-                    currentpos = 1;
-                }
+                currentArr = new ArrayList<Integer>();
+                currentArr.add(arr[i]);    
             }
         }
-        System.out.println("longest chain : "+ Math.max(longchain, currentpos) );
-    }
+        if(currentArr.size()>longestArr.size()){
+            longestArr = currentArr;
+        }
+        System.out.println("The longest chain of numbers in ascending order : ");
+       System.out.print(longestArr);
 
+    }
     public static void main(String[] args) {
-    in = new Scanner(System.in);
-    int[] myArray = Input();
+     in = new Scanner(System.in);
+     int[] myArray = Input();
+    //int[] myArray = new int[]{4,2,5,8,10,1,5,10,11,15};
     System.out.println("Output array:");
     Print(myArray);
-    searchChain(myArray);
+    LongestChain(myArray);
     }
     
 }
+
+
+

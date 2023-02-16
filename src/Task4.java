@@ -22,7 +22,6 @@ public class Task4 {
             }
           }
         }
-        System.out.println("String after remove word : ");
         int j=0;
         String[] result = new String[count(words)];
         for(int i=0; i<words.length; i++){
@@ -31,6 +30,7 @@ public class Task4 {
           j++; 
         }
         }
+        System.out.println("String after remove word : ");
         System.out.println(Arrays.toString(result));
          in.close(); 
     } 
