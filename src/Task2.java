@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.List;
 public class Task2 {
     static Scanner in;
     static int [] Input()
@@ -29,8 +30,8 @@ public class Task2 {
     }
     static void LongestChain(int[] arr){
         int previous = arr[0];
-        ArrayList<Integer> longestArr = new ArrayList<Integer>();
-        ArrayList<Integer> currentArr = new ArrayList<Integer>();
+        List<Integer> longestArr = new ArrayList<Integer>();
+        List<Integer> currentArr = new ArrayList<Integer>();
         currentArr.add(previous);
         for(int i=1;i<arr.length;i++){
             if(arr[i]>previous){
@@ -53,12 +54,13 @@ public class Task2 {
 
     }
     public static void main(String[] args) {
-     in = new Scanner(System.in);
+    in = new Scanner(System.in);
      int[] myArray = Input();
     //int[] myArray = new int[]{4,2,5,8,10,1,5,10,11,15};
     System.out.println("Output array:");
     Print(myArray);
     LongestChain(myArray);
+    in.close();
     }
     
 }
