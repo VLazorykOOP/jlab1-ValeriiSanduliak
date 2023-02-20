@@ -19,14 +19,14 @@ public class Task3 {
         static void Vect(int[][] a,int[][] b,int n){
             int[] x = new int [n];
             for (int i = 0; i < n; ++i){
-            for (int j = 0; j < n; ++j){
+                boolean k =false;
+                for (int j = 0; j < n; ++j){
                 if(a[i][j]==b[j][i]){
-                    x[i]=1;
+                    k=true;
                 }
-                else{
-                    x[i]=0;
-                }
+            
             }
+            x[i] = k ? 1 : 0;
             }
             for(int i=0;i<n;++i){
                 System.out.print("x["+i+"] "+x[i]+" ");
