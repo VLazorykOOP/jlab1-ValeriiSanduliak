@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 public class Task2 {
     static Scanner in;
     static int [] Input()
@@ -28,39 +28,51 @@ public class Task2 {
     }
     System.out.println();
     }
-    static void LongestChain(int[] arr){
-        int previous = arr[0];
-        List<Integer> longestArr = new ArrayList<Integer>();
-        List<Integer> currentArr = new ArrayList<Integer>();
-        currentArr.add(previous);
-        for(int i=1;i<arr.length;i++){
-            if(arr[i]>previous){
-                currentArr.add(arr[i]);
+    static void LongestChain(int[] myArray){
+
+        ArrayList<Integer> current = new ArrayList<>();
+        ArrayList<Integer> longestArr = new ArrayList<>();
+        for(int i = 0; i < myArray.length; i++)
+        {
+            if(current.size() == 0)
+            {
+                current.add(myArray[i]);
             }
-            else {
-                previous = arr[i];
-                if(currentArr.size()>longestArr.size()){
-                    longestArr =currentArr;
+            else if(current.get(current.size() - 1) < myArray[i])
+            {
+                current.add(myArray[i]);
+            }
+            else
+            {
+                if(current.size() > longestArr.size())
+                {
+                    longestArr = current;
+                    current = new ArrayList<>();
+                    current.add(myArray[i]);
                 }
-                currentArr = new ArrayList<Integer>();
-                currentArr.add(arr[i]);    
+                else
+                {
+                    current = new ArrayList<>();
+                    current.add(myArray[i]);
+                }
             }
         }
-        if(currentArr.size()>longestArr.size()){
-            longestArr = currentArr;
+        if(current.size() > longestArr.size())
+        {
+            longestArr = current;
         }
-        System.out.println("The longest chain of numbers in ascending order : ");
-       System.out.print(longestArr);
+        System.out.println("Longest chain " + Arrays.toString(longestArr.toArray()));
 
     }
     public static void main(String[] args) {
-    in = new Scanner(System.in);
-     int[] myArray = Input();
-    //int[] myArray = new int[]{4,2,5,8,10,1,5,10,11,15};
+     in = new Scanner(System.in);
+    // int[] myArray = Input();
+    int[] myArray = new int[]{4,2,5,8,10,1,5,10,8,9};
     System.out.println("Output array:");
     Print(myArray);
     LongestChain(myArray);
-    in.close();
+    
+
     }
     
 }
