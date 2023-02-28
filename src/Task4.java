@@ -9,6 +9,8 @@ public class Task4 {
       int start = 0;
       int end = 0;
       int writePos = 0;
+      System.out.println("String before remove:");
+      System.out.println(text);
 
       for (int readPos = 0; readPos < char_txt.length; readPos++) {
           if (char_txt[readPos] == ' ' || char_txt[readPos] == ',' || char_txt[readPos] == '.') {
@@ -32,7 +34,7 @@ public class Task4 {
               }
           }
       }
-  
+      System.out.println("String after remove:");
       String result = new String(char_txt, 0, writePos);
       System.out.println(result);
       in.close();
